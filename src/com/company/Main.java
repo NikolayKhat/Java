@@ -77,19 +77,19 @@ public class Main {
 
         System.out.println("Дана строка: " + str);
 
-        int maxJ = 0;
+        int minJ = 0;
         for (int i = 0; i < ch.length; i++) {
             for (int j = i + 1; j < ch.length; j++) {
-                if (ch[maxJ] >= ch[j]) {
-                    maxJ = j;
+                if (ch[minJ] >= ch[j]) {
+                    minJ = j;
                 }
             }
-            if (maxJ != i) {
-                ch[i] += ch[maxJ];
-                ch[maxJ] = (char)(ch[i] - ch[maxJ]);
-                ch[i] -= ch[maxJ];
+            if (minJ != i) {
+                ch[i] += ch[minJ];
+                ch[minJ] = (char)(ch[i] - ch[minJ]);
+                ch[i] -= ch[minJ];
             }
-            maxJ = i + 1;
+            minJ = i + 1;
         }
         System.out.print("Повторяющиеся символы: ");
         for (int i = 0; i < ch.length - 1; i++) {
